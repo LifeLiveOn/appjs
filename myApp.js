@@ -4,6 +4,14 @@ let env = require('dotenv').config()
 const path = require('path')
 app.use('/public', express.static(path.join(__dirname, 'public')))
 
+// cai nay chay moi luc server dc nhan request
+app.use(function middleware(req, res, next) {
+    var string = req.method + " " + req.path + " - " + req.ip;
+    console.log(string)
+    next();
+  });
+
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname+'/views/index.html')
 })
