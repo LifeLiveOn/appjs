@@ -14,7 +14,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.get("/:word/echo",(req,res)=>{
   const data = {
-    echo:req.params
+    echo:req.params.word
   }
   res.json(data)
 })
