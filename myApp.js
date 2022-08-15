@@ -12,10 +12,8 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 //   });
 
 
-app.get('/name',(req, res) => {
-  var firstname = req.query.first
-  var lastname = req.query.last
-  var{first:firstname, last:lastname} =req.query
+app.get('/name', function(req, res) {
+  var{first:firstname, last:lastname} = req.query
   res.json({
     name:'${firstname} ${lastname}',
   })
