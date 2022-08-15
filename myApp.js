@@ -12,6 +12,16 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 //   });
 
 
+app.get('/name',(req, res) => {
+  var firstname = req.query.first
+  var lastname = req.query.last
+  var{first:firstname, last:lastname} =req.query
+  res.json({
+    name:'${firstname} ${lastname}',
+  })
+})
+
+
 app.get("/:word/echo",(req,res)=>{
   const data = {
     echo:req.params.word
