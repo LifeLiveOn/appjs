@@ -12,7 +12,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 //   });
 
 
-app.get(":word/echo",(req,res)=>{
+app.get("/:word/echo",(req,res)=>{
   const data = {
     echo:req.params
   }
