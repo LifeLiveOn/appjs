@@ -12,15 +12,18 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 //   });
 
 
+app.post(":word/echo",(req,res)=>{
+  const data = {
+    word:echo
+  }
+  res.json(data)
+})
+
 // cai nay vua chay request vua chay middleware check cung luc cho 1 cai 
 //thay vi tach ra function rieng va goi no theo kieu app.get("/now",function,(req,res))
-app.get(
-  "/now",
-  (req, res, next) => {
+app.get("/now",(req, res, next) => {
     req.time = new Date().toString();
-    next();
-  },
-  (req, res) => {
+    next();},(req, res) => {
     res.send({
       time: req.time
     });
