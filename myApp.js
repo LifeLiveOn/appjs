@@ -15,7 +15,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 app.get('/name', function(req, res) {
   var{first:firstname, last:lastname} = req.query
   res.json({
-    name:'${firstname} ${lastname}',
+    name: `${firstname} ${lastname}`,
   })
 })
 
