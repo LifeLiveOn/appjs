@@ -12,9 +12,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 //   });
 
 
-app.post(":word/echo",(req,res)=>{
+app.get(":word/echo",(req,res)=>{
   const data = {
-    word:echo
+    echo:req.params
   }
   res.json(data)
 })
@@ -23,7 +23,9 @@ app.post(":word/echo",(req,res)=>{
 //thay vi tach ra function rieng va goi no theo kieu app.get("/now",function,(req,res))
 app.get("/now",(req, res, next) => {
     req.time = new Date().toString();
-    next();},(req, res) => {
+    next();
+  },
+  (req, res) => {
     res.send({
       time: req.time
     });
