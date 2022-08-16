@@ -14,6 +14,10 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 //     next();
 //   });
 
+app.post('/name',function(req, res){
+  var {first:firstname, last:lastname} = req.body
+  res.json({name: `${firstname} ${lastname}`})
+})
 
 app.get('/name', function(req, res) {
   var{first:firstname, last:lastname} = req.query
