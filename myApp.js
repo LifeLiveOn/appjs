@@ -2,6 +2,9 @@ let express = require('express');
 let app = express();
 let env = require('dotenv').config()
 const path = require('path')
+let bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/public', express.static(path.join(__dirname, 'public')))
 
 // cai nay chay moi luc server dc nhan request
